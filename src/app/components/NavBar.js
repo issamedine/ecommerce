@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import React from 'react';
-import  './navbar.scss';
+import './navbar.scss';
 import { usePathname } from 'next/navigation';
 import { useSelector } from 'react-redux';
 
@@ -32,7 +32,9 @@ function NavBar() {
         className={`${pathname === "/category/women's clothing" ? 'active' : ''}`}
       >Women</Link>
 
-      <div className="basket">cart {basket.length > 0 ? <div className="notification-count">{basket.length}</div> : null}</div>
+      <Link href="/cart">
+        <div className="basket">cart {basket.length > 0 ? <div className="notification-count">{basket.length}</div> : null}</div>
+      </Link>
     </div>
   )
 }

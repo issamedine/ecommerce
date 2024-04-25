@@ -1,0 +1,16 @@
+.container-cart {
+    .item-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #414141;
+        width: 60%;
+        margin: 5px auto;
+        font-size: 10px;
+
+        .content {
+            margin: 0 5px;
+            text-align: right;
+        }
+    }
+}

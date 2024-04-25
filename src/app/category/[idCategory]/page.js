@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
+import React from 'react';
+import '../../products/products.scss'
 
 const getCategory = async (idCategory) => {
     const res = await fetch(`https://fakestoreapi.com/products/category/${idCategory}`)
@@ -11,13 +12,24 @@ const Category = async ({ params }) => {
 
 
     return (
-        <div>
-            {data?.map(el => <Link href={`/products/${el.id}`}>
-                <img src={el.image} width={200} height={200} />
-                <div>title: {el.title}</div>
-                <div>title: {el.price}</div>
-                <div>title: {el.price}</div>
-            </Link>)}
+        <div className="container-products">
+            {data?.map(el => (
+                <Link
+                    href={`/products/${el.id}`}
+                    className="item"
+                >
+                    <div
+                        className="image"
+                        style={{ backgroundImage: `url('${el.image}')` }}
+                    ></div>
+                    <div className="item-main">
+                        <div className="title">{el.title}</div>
+                        <div>rating</div>
+                        <div>reviews</div>
+                        <div>{el.price} $</div>
+                    </div>
+                </Link>
+            ))}
         </div>
     )
 }

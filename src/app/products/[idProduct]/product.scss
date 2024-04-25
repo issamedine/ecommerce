@@ -6,10 +6,10 @@
 
     .image {
         width: 50%;
-        height: 94vh;
+        height: 93vh;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center 0;
 
         @media (max-width: 768px) {
             width: 100%;
@@ -49,8 +49,10 @@
                 font-size: 30px;
                 font-weight: bold;
             }
-
+            
             .description {
+                height: 65vh;
+                overflow: scroll;
                 font-size: 30px;
                 font-weight: 200;
             }

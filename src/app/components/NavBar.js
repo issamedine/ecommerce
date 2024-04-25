@@ -1,34 +1,38 @@
 "use client"
 import Link from 'next/link'
 import React from 'react';
-import navbar from './navbar.module.scss';
+import  './navbar.scss';
 import { usePathname } from 'next/navigation';
+import { useSelector } from 'react-redux';
 
 function NavBar() {
+  const basket = useSelector(state => state.counter.basket)
   const pathname = usePathname()
-  console.log("pathname", pathname)
+
   return (
-    <div className={navbar.container}>
+    <div className="container-navbar">
       <Link
         href="/products"
-        className={`${pathname === '/products' ? navbar.active : ''}`}
+        className={`${pathname === '/products' ? 'active' : ''}`}
       >All products</Link>
       <Link
         href="/category/electronics"
-        className={`${pathname === '/category/electronics' ? navbar.active : ''}`}
+        className={`${pathname === '/category/electronics' ? 'active' : ''}`}
       >electronics</Link>
       <Link
         href="/category/jewelery"
-        className={`${pathname === '/category/jewelery' ? navbar.active : ''}`}
+        className={`${pathname === '/category/jewelery' ? 'active' : ''}`}
       >jewelery</Link>
       <Link
         href="/category/men's clothing"
-        className={`${pathname === "/category/men's clothing" ? navbar.active : ''}`}
-        >Men</Link>
-      <Link 
+        className={`${pathname === "/category/men's clothing" ? 'active' : ''}`}
+      >Men</Link>
+      <Link
         href="/category/women's clothing"
-        className={`${pathname === "/category/women's clothing" ? navbar.active : ''}`}
+        className={`${pathname === "/category/women's clothing" ? 'active' : ''}`}
       >Women</Link>
+
+      <div className="basket">cart {basket.length > 0 ? <div className="notification-count">{basket.length}</div> : null}</div>
     </div>
   )
 }
